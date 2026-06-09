@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Banknotenprüfung";
+}
+
+<form method="post" asp-action="Einzelprüfung">
+
+    <fieldset style="width: 420px;">
+
+        <legend>Einzelprüfung</legend>
+
+        <label>Seriennummer:</label>
+        <input type="text" name="serialNumber" />
+        <input type="submit" value="Prüfen" />
+    </fieldset>
+
+</form>
+
+<form method="post">
+
+    <fieldset style="width: 420px">
+
+        <legend>Listenprüfung</legend>
+
+        <label>Seriennummern:</label><br />
+        <textarea name="serialNumbers" rows="8" cols="22"></textarea><br />
+        <input type="submit" value="Prüfen" /> 
+        
+    </fieldset>
+
+</form>
+
+<form method="post" enctype="multipart/form-data">
+
+    <fieldset style="width: 420px">
+
+        <legend>Dateiprüfung</legend>
+        
+        <input type="file" name="datei" />
+        <br />
+        <input type="submit" value="Prüfen" />
+    
+    </fieldset>
+</form>
+
+@if(ViewBag.Result != null)
+{
+    <h2>Ergebnis:</h2>
+    <p>@ViewBag.Result</p>
+}
