@@ -15,7 +15,7 @@
 
 </form>
 
-<form method="post">
+<form method="post" asp-action="Listenprüfung">
 
     <fieldset style="width: 420px">
 
@@ -29,7 +29,7 @@
 
 </form>
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" asp-action="Dateiprüfung" enctype="multipart/form-data">
 
     <fieldset style="width: 420px">
 
@@ -47,3 +47,14 @@
     <h2>Ergebnis:</h2>
     <p>@ViewBag.Result</p>
 }
+
+@if(ViewBag.Results != null)
+{
+    <h2>Ergebnisse:</h2>
+    <ul>
+        @foreach(var result in ViewBag.Results)
+        {
+            <li>@result</li>
+        }
+    </ul>
+}   
